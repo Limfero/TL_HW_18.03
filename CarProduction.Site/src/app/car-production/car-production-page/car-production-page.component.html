@@ -1,0 +1,44 @@
+<mat-tab-group>
+  <mat-tab label="Manufacturers">
+
+  </mat-tab>
+  <mat-tab label="Cars">
+    <mat-card>
+      <mat-card-title>Car List</mat-card-title>
+      <mat-card-content>
+        <span *ngIf="doneItems?.length === 0 && inProgressItems?.length === 0">Автомобилей нет!</span>
+        <h3>Список автомобилей</h3>
+        <mat-list *ngIf="CarItems && CarItems.length > 0" role="list">
+          <tl-todo-list-item *ngFor="let item of CarItems"
+                             [item]="item"
+                             role="listitem"
+                             (update)="updateCar($event)"
+                             (delete)="deleteCar($event)">
+          </tl-todo-list-item>
+        </mat-list>
+      </mat-card-content>
+      <mat-card-actions>
+        <form [formGroup]="form">
+          <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>Title</mat-label>
+            <input formControlName="Model" matInput type="text">
+            <input formControlName="BuildData" matInput type="datetime">
+            <input formControlName="Price" matInput type="number">
+            <input formControlName="ManufacturerId" matInput type="number">
+            <button *ngIf="titleControl.value" matSuffix mat-icon-button aria-label="Clear"
+                    (click)="titleControl.setValue(null)">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </form>
+        <button mat-flat-button color="primary" (click)="addItem()">Add</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Car Dealerships">
+
+  </mat-tab>
+  <mat-tab label="Purchase Order">
+
+  </mat-tab>
+</mat-tab-group>
