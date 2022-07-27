@@ -1,0 +1,13 @@
+<mat-card class="example-card" [routerLink]="['/cars-in-dealership-list', item.supplier]">
+  <mat-card-title-group>
+    <mat-list-item role="listitem">
+      <mat-card-title>
+        <h2>"{{item.nameDealership}}"</h2>
+      </mat-card-title>
+    </mat-list-item>
+    <img mat-card-sm-image src="" alt="{{item.nameDealership}}">
+    </mat-card-title-group>
+    <mat-card-content>
+      <div>Поставщик: {{item.supplier}}</div>
+    </mat-card-content>
+</mat-card>

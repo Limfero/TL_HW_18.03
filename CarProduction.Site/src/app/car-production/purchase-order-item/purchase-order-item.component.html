@@ -1,0 +1,16 @@
+<mat-card class="example-card">
+    <mat-card-title-group>
+        <mat-list-item role="listitem">
+           <mat-card-title>
+             <h2>{{purchaseOrder.nameBuyer}}</h2>
+           </mat-card-title>
+       </mat-list-item>
+       <img mat-card-sm-image src="" alt="{{purchaseOrder.nameBuyer}}">
+      </mat-card-title-group>
+      <mat-card-content>
+        <div>Id автосалона: {{purchaseOrder.dealershipId}}</div>
+        <div>Id автомобиля: {{purchaseOrder.carId}}</div>
+     </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+  </mat-card>

@@ -1,0 +1,61 @@
+<mat-card>
+  <app-menu></app-menu>
+
+  <mat-card-title>Список автомобилей в автосалоне:</mat-card-title>
+      <mat-card-content>
+        <mat-list *ngIf="cars.length > 0" role="list">
+          <app-car-item *ngFor="let car of cars"
+                             [car]="car"
+                             role="listitem"
+                             (delete)="deleteCar($event)">
+          </app-car-item>
+        </mat-list>
+      </mat-card-content>
+      <mat-card-actions>
+        <form [formGroup]="form">
+          <mat-list>
+            <mat-list-item>
+
+              <mat-form-field class="example-form-field" appearance="fill">
+                <mat-label>Название модели</mat-label>
+                <input formControlName="model" matInput maxlength="20" placeholder="Lada Granta">
+                <button mat-stroked-button color="primary" *ngIf="modelControl.value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="modelControl.setValue(null)">
+                        <mat-icon>close</mat-icon>
+                    </button>
+              </mat-form-field>
+
+              <mat-form-field class="example-form-field" appearance="fill">
+                <mat-label>Дата выпуска</mat-label>
+                <input formControlName="buildData" matInput type="date">
+                <button mat-stroked-button color="primary" *ngIf="buildDataControl.value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="buildDataControl.setValue(null)">
+                        <mat-icon>close</mat-icon>
+                    </button>
+              </mat-form-field>
+
+              <mat-form-field class="example-form-field" appearance="fill">
+                <mat-label>Цена</mat-label>
+                <input formControlName="price" value="0" matInput type="number" min="0" placeholder="230000">
+                <button mat-stroked-button color="primary" *ngIf="priceControl.value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="priceControl.setValue(null)">
+                        <mat-icon>close</mat-icon>
+                    </button>
+              </mat-form-field>
+            </mat-list-item>
+          </mat-list>
+          <button mat-flat-button color="primary" (click)="addCar()">Добавить</button>
+          <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>Id автомобиля (для обновления)</mat-label>
+            <input formControlName="carId" matInput type="number" min = 0>
+            <button mat-stroked-button color="primary" *ngIf="carIdControl.value" matSuffix mat-icon-button aria-label="Clear"
+                    (click)="carIdControl.setValue(null)">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+    </form>
+
+    <button mat-flat-button color="accent" (click)="updateCar()">Обновить информацию о автомобиле</button>
+    </mat-card-actions>
+</mat-card>

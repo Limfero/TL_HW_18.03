@@ -1,7 +1,7 @@
 export interface ICar {
-  CarId?: number;
-  Model: string;
-  BuildData: Date;
-  Price: number;
-  ManufacturerId: number;
+  carId?: number;
+  model: string;
+  buildData: Date;
+  price: number;
+  manufacturerId: number;
 }

@@ -12,7 +12,7 @@ namespace CarProduction.Repositories
             _connectionString = connectionString;
         }
 
-        public IReadOnlyList<PurchaseOrder> GetAll()
+        public List<PurchaseOrder> GetAll()
         {
             var result = new List<PurchaseOrder>();
 

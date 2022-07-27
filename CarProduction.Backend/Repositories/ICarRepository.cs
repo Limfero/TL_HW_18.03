@@ -11,5 +11,6 @@ namespace CarProduction.Repositories
         int UpdateCar(Car car);
         void DeleteCar(Car car);
         int CreateCar(Car car);
+        string GetNameManufacturer(int manufacturerId);
     }
 }

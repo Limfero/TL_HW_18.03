@@ -4,6 +4,6 @@ namespace CarProduction.Repositories
 {
     public interface IPurchaseOrderRepository
     {
-        IReadOnlyList<PurchaseOrder> GetAll();
+        List<PurchaseOrder> GetAll();
     }
 }

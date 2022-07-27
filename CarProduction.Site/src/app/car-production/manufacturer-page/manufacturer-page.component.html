@@ -1,0 +1,15 @@
+<mat-card>
+    <app-menu></app-menu>
+    
+    <mat-card-title-group>
+        <mat-card-title>
+            <h2>{{manufacturer.nameFactory}}</h2>
+          </mat-card-title>
+          <img mat-card-sm-image src="" alt="{{manufacturer.nameFactory}}">
+    </mat-card-title-group>
+    <mat-card-content>
+        <h3>Штаб квартира: {{manufacturer.headquarters}}</h3>
+        <h3>Дата основания: {{manufacturer.foundationDate}}</h3>
+        <div>Информация: {{longtext}}</div>
+     </mat-card-content>
+</mat-card>

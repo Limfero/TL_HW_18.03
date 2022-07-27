@@ -171,5 +171,17 @@ namespace CarProduction.Repositories
 
             return Convert.ToInt32(sqlCommand.ExecuteScalar());
         }
+
+        public string GetNameManufacturer(int manufacturerId)
+        {
+            using var connection = new SqlConnection(_connectionString);
+            connection.Open();
+
+            using SqlCommand sqlCommand = connection.CreateCommand();
+            sqlCommand.CommandText = "select [NameFactory] from [Manufacturer] where [ManufacturerId] = @manufacturerId";
+            sqlCommand.Parameters.Add("@carId", SqlDbType.Int).Value = manufacturerId;
+
+            return Convert.ToString(sqlCommand.ExecuteScalar());
+        }
     }
 }

@@ -1,5 +1,5 @@
 export interface ICarDealership {
-  DealershipId?: number;
-  NameDealership: string;
-  Supplier: number;
+  dealershipId?: number;
+  nameDealership: string;
+  supplier: number;
 }

@@ -1,0 +1,36 @@
+<mat-card>
+  <app-menu></app-menu>
+
+    <mat-card-title>Список автосолонов: </mat-card-title>
+    <mat-card-content>
+      <mat-list role="list">
+          <app-car-dealership-item *ngFor="let item of carDealerships"
+                           [item]="item"
+                           role="listitem">
+          </app-car-dealership-item> 
+      </mat-list>   
+    </mat-card-content>
+    <mat-card-actions>
+      <form [formGroup]="form">
+            <mat-form-field class="example-form-field" appearance="fill">
+              <mat-label>Название автосалона</mat-label>
+              <input formControlName="nameDealership" matInput maxlength="20" type="text" placeholder="АВТО-Ваз">
+              <button mat-stroked-button color="primary" *ngIf="nameDealershipControl.value" matSuffix mat-icon-button aria-label="Clear"
+                        (click)="nameDealershipControl.setValue(null)">
+                    <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+            &nbsp;
+
+            <mat-form-field class="example-form-field" appearance="fill">
+              <mat-label>Поставщик</mat-label>
+              <input formControlName="supplier" matInput type="number" min = 0 placeholder="1-...">
+              <button mat-stroked-button color="primary" *ngIf="supplierControl.value" matSuffix mat-icon-button aria-label="Clear"
+                        (click)="supplierControl.setValue(null)">
+                    <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+          <button mat-flat-button color="accent" (click)="addCarDealershipItem()">Добавить автосалон</button>
+      </form>
+    </mat-card-actions>
+  </mat-card>

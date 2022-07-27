@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CarProductionPageComponent } from "./car-production/car-production-page/car-production-page.component";
+import { CarProductionComponent } from './car-production/car-production/car-production.component';
 
 const routes: Routes = [
   {
-      path: '**',
-      component: CarProductionPageComponent
+    path: '',
+    component: CarProductionComponent
   }
-]
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

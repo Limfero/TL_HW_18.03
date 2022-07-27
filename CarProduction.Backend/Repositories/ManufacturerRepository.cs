@@ -1,4 +1,5 @@
 ﻿using CarProduction.Domain;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace CarProduction.Repositories
@@ -37,6 +38,30 @@ namespace CarProduction.Repositories
             return result;
         }
 
+        public Manufacturer GetManufacturerById(int manufacturerId)
+        {
+            using var connection = new SqlConnection(_connectionString);
+            connection.Open();
 
+            using SqlCommand sqlCommand = connection.CreateCommand();
+            sqlCommand.CommandText = "select [ManufacturerId], [NameFactory], [Headquarters], [FoundationDate] from [Manufacturer] where [ManufacturerId] = @manufacturerId";
+            sqlCommand.Parameters.Add("@manufacturerId", SqlDbType.Int).Value = manufacturerId;
+
+            using SqlDataReader reader = sqlCommand.ExecuteReader();
+            if (reader.Read())
+            {
+                return new Manufacturer
+                {
+                    ManufacturerId = Convert.ToInt32(reader["ManufacturerId"]),
+                    NameFactory = Convert.ToString(reader["NameFactory"]),
+                    Headquarters = Convert.ToString(reader["Headquarters"]),
+                    FoundationDate = Convert.ToDateTime(reader["FoundationDate"])
+                };
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

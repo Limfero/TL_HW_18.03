@@ -1,6 +1,6 @@
 export interface IManufacturer {
-  ManufacturerId?: number;
-  NameFactury: string;
-  Headquarters: string;
-  FoundationDate: Date;
+  manufacturerId?: number;
+  nameFactory: string;
+  headquarters: string;
+  foundationDate: Date;
 }

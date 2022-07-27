@@ -5,7 +5,7 @@ import { HttpClient } from "@angular/common/http";
 
 @Injectable()
 export class CarService {
-  private readonly apiUrl: string = 'http://localhost:4200/api/Car';
+  private readonly apiUrl: string = 'http://localhost:4200/api/car';
 
   constructor(private httpClient: HttpClient) {
   }
@@ -22,11 +22,11 @@ export class CarService {
     return this.httpClient.get<ICar[]>(`${this.apiUrl}/listCar`);
   }
 
-  public getCar(id: number): Observable<ICar> {
-    return this.httpClient.get<ICar>(`${this.apiUrl}/${id}`);
+  public getCarsInDealerships(carDealershipId: number): Observable<ICar[]> {
+    return this.httpClient.get<ICar[]>(`${this.apiUrl}/listCarsInDealerships/${carDealershipId}`);
   }
 
-  public updateCar(id: number): Observable<object> {
-    return this.httpClient.put(`${this.apiUrl}/${id}/update`, "json");
+  public updateCar(car: ICar): Observable<null> {
+    return this.httpClient.put<null>(`${this.apiUrl}/${car.carId}/update`, car);
   }
 }

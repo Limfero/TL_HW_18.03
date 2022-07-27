@@ -11,6 +11,8 @@ namespace CarProduction.Service
         int UpdateCar(CarDto car);
         void DeleteCar(int carId);
         List<Car> GroupFromCountOrder(int count);
+        List<Car> GetCarByManufacturerId(int manufacturerId);
+        string GetNameManufacturer(int manufacturerId);
 
 
     }

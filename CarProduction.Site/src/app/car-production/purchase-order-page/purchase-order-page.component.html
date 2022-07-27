@@ -1,0 +1,12 @@
+<mat-card>
+    <app-menu></app-menu>
+    
+    <mat-card-title>Список всех заказов:</mat-card-title>
+        <mat-card-content>
+          <mat-list *ngIf="purchaseOrders.length > 0" role="list">
+            <app-purchase-order-item *ngFor="let purchaseOrder of purchaseOrders"
+                               [purchaseOrder]="purchaseOrder"
+                               role="listitem">
+            </app-purchase-order-item>
+          </mat-list>
+        </mat-card-content>

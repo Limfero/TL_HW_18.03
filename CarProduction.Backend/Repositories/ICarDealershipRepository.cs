@@ -4,6 +4,8 @@ namespace CarProduction.Repositories
 {
     public interface ICarDealershipRepository
     {
-        IReadOnlyList<CarDealership> GetAll();
+        List<CarDealership> GetAll();
+
+        int CreateCarDealership(CarDealership carDealership);
     }
 }

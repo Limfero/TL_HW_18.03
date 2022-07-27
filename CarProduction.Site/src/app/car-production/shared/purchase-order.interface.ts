@@ -1,5 +1,5 @@
 export interface IPurchaseOrder {
-  NameBuyer: string;
-  DealershipId: number;
-  CarId: number;
+  nameBuyer: string;
+  dealershipId: number;
+  carId: number;
 }

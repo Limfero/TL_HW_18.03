@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddScoped<IManufacturerRepository>(s =>
     new ManufacturerRepository(builder.Configuration.GetValue<string>("DefaultConnection")));
-builder.Services.AddScoped<IManufactererService, ManufactererService>();
+builder.Services.AddScoped<IManufacturerService, ManufacturerService>();
 
 builder.Services.AddScoped<ICarRepository>(s =>
     new CarRepository(builder.Configuration.GetValue<string>("DefaultConnection")));

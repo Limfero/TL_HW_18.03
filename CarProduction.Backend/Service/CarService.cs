@@ -18,6 +18,11 @@ namespace CarProduction.Service
             return _carRepository.GetAll();
         }
 
+        public List<Car> GetCarByManufacturerId(int manufacturerId)
+        {
+            return _carRepository.GetCarByManufacturerId(manufacturerId);
+        }
+
         public Car GetCar(int carId)
         {
             Car car = _carRepository.GetCarById(carId);
@@ -69,6 +74,11 @@ namespace CarProduction.Service
         public List<Car> GroupFromCountOrder(int count)
         {
             return _carRepository.GroupFromCountOrder(count);
+        }
+
+        public string GetNameManufacturer(int manufacturerId)
+        {
+            return _carRepository.GetNameManufacturer(manufacturerId);
         }
     }
 }

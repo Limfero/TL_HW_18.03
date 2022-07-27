@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CarProduction.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/{controller}")]
     public class CarController : ControllerBase
     {
         private readonly ICarService _carService;
@@ -23,6 +23,21 @@ namespace CarProduction.Controllers
             try
             {
                 return Ok(_carService.GetCars()
+                    .ConvertAll(t => t.ConvertToCarDto()));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        
+        [HttpGet]
+        [Route("listCarsInDealerships/{carDealershipId}")]
+        public IActionResult GetCarInCarDealership(int carDealershipId)
+        {
+            try
+            {
+                return Ok(_carService.GetCarByManufacturerId(carDealershipId)
                     .ConvertAll(t => t.ConvertToCarDto()));
             }
             catch (Exception ex)
@@ -102,5 +117,18 @@ namespace CarProduction.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("getNameFactory/{manufacturerId}")]
+        public IActionResult GetNameManufacturer(int manufacturerId)
+        {
+            try
+            {
+                return Ok(_carService.GetNameManufacturer(manufacturerId));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

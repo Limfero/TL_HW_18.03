@@ -3,8 +3,8 @@ using CarProduction.Dto;
 
 namespace CarProduction.Service
 {
-    public interface IManufactererService
+    public interface IManufacturerService
     {
-
+        Manufacturer GetManufacturer(int manufacturerId);
     }
 }

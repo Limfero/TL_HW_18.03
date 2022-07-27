@@ -1,0 +1,21 @@
+<mat-card class="example-card">
+  <mat-card-title-group>
+      <mat-list-item role="listitem">
+         <mat-card-title>
+           <h2>{{car.model}}</h2>
+         </mat-card-title>
+     </mat-list-item>
+     <img mat-card-sm-image src="" alt="{{car.model}}">
+    </mat-card-title-group>
+    <mat-card-content>
+      <div>Id: {{car.carId}}</div>
+      <div>Дата выпуска: {{car.buildData}}</div>
+      <div>Цена: {{car.price}} руб</div>
+      <div><a [routerLink]="['/manufacturer', car.manufacturerId]">Id производства: {{car.manufacturerId}}</a></div>
+   </mat-card-content>
+  <mat-card-actions>
+    <button style="margin: 0 10px" mat-raised-button color="primary" aria-label="Delete" (click)="deleteCar()">
+      Delete
+    </button>
+  </mat-card-actions>
+</mat-card>
